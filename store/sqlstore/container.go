@@ -11,6 +11,7 @@ import (
 	"errors"
 	"fmt"
 	mathRand "math/rand"
+	"strings"
 
 	"github.com/google/uuid"
 	"go.mau.fi/util/random"
@@ -35,14 +36,28 @@ var _ store.DeviceContainer = (*Container)(nil)
 
 // New connects to the given SQL database and wraps it in a Container.
 //
-// Only SQLite and Postgres are currently fully supported.
+// Only SQLite, MySQL and Postgres are currently fully supported.
 //
 // The logger can be nil and will default to a no-op logger.
 //
 // When using SQLite, it's strongly recommended to enable foreign keys by adding `?_foreign_keys=true`:
 //
 //	container, err := sqlstore.New("sqlite3", "file:yoursqlitefile.db?_foreign_keys=on", nil)
+//
+// When using MySQL, you should use the following format for the connection string:
+//
+//	container, err := sqlstore.New("mysql", "user:password@tcp(localhost:3306)/dbname", nil)
 func New(dialect, address string, log waLog.Logger) (*Container, error) {
+	if dialect == "mysql" {
+		// Add MySQL-specific connection parameters
+		if !strings.Contains(address, "?") {
+			address += "?"
+		} else {
+			address += "&"
+		}
+		address += "parseTime=true&multiStatements=true"
+	}
+
 	db, err := sql.Open(dialect, address)
 	if err != nil {
 		return nil, fmt.Errorf("failed to open database: %w", err)
@@ -92,7 +107,7 @@ SELECT jid, lid, registration_id, noise_key, identity_key,
 FROM whatsmeow_device
 `
 
-const getDeviceQuery = getAllDevicesQuery + " WHERE jid=$1"
+const getDeviceQuery = getAllDevicesQuery + " WHERE jid=?"
 
 type scannable interface {
 	Scan(dest ...interface{}) error
@@ -193,14 +208,14 @@ const (
 									  signed_pre_key, signed_pre_key_id, signed_pre_key_sig,
 									  adv_key, adv_details, adv_account_sig, adv_account_sig_key, adv_device_sig,
 									  platform, business_name, push_name, facebook_uuid)
-		VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
-		ON CONFLICT (jid) DO UPDATE
-			SET lid=excluded.lid,
-				platform=excluded.platform,
-				business_name=excluded.business_name,
-				push_name=excluded.push_name
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		ON DUPLICATE KEY UPDATE
+			lid=VALUES(lid),
+			platform=VALUES(platform),
+			business_name=VALUES(business_name),
+			push_name=VALUES(push_name)
 	`
-	deleteDeviceQuery = `DELETE FROM whatsmeow_device WHERE jid=$1`
+	deleteDeviceQuery = `DELETE FROM whatsmeow_device WHERE jid=?`
 )
 
 // NewDevice creates a new device in this database.

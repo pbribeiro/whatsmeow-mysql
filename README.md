@@ -16,6 +16,33 @@ discussions.
 The [godoc](https://pkg.go.dev/github.com/pbribeiro/whatsmeow-mysql) includes docs for all methods and event types.
 There's also a [simple example](https://pkg.go.dev/github.com/pbribeiro/whatsmeow-mysql#example-package) at the top.
 
+## Database Support
+The library supports multiple database backends for storing WhatsApp session data:
+
+* MySQL (recommended for production use)
+* PostgreSQL
+* SQLite (good for development and testing)
+
+To use MySQL, you need to:
+
+1. Install the MySQL driver:
+```bash
+go get github.com/go-sql-driver/mysql
+```
+
+2. Initialize the database connection:
+```go
+container, err := sqlstore.New("mysql", "user:password@tcp(localhost:3306)/dbname", nil)
+if err != nil {
+    panic(err)
+}
+```
+
+The MySQL connection string format is:
+```
+user:password@tcp(host:port)/dbname?param=value
+```
+
 ## Features
 Most core features are already present:
 
