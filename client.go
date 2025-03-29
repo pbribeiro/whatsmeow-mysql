@@ -23,17 +23,17 @@ import (
 	"go.mau.fi/util/random"
 	"golang.org/x/net/proxy"
 
-	"go.mau.fi/whatsmeow/appstate"
-	waBinary "go.mau.fi/whatsmeow/binary"
-	"go.mau.fi/whatsmeow/proto/waE2E"
-	"go.mau.fi/whatsmeow/proto/waWa6"
-	"go.mau.fi/whatsmeow/proto/waWeb"
-	"go.mau.fi/whatsmeow/socket"
-	"go.mau.fi/whatsmeow/store"
-	"go.mau.fi/whatsmeow/types"
-	"go.mau.fi/whatsmeow/types/events"
-	"go.mau.fi/whatsmeow/util/keys"
-	waLog "go.mau.fi/whatsmeow/util/log"
+	"github.com/pbribeiro/whatsmeow-mysql/appstate"
+	waBinary "github.com/pbribeiro/whatsmeow-mysql/binary"
+	"github.com/pbribeiro/whatsmeow-mysql/proto/waE2E"
+	"github.com/pbribeiro/whatsmeow-mysql/proto/waWa6"
+	"github.com/pbribeiro/whatsmeow-mysql/proto/waWeb"
+	"github.com/pbribeiro/whatsmeow-mysql/socket"
+	"github.com/pbribeiro/whatsmeow-mysql/store"
+	"github.com/pbribeiro/whatsmeow-mysql/types"
+	"github.com/pbribeiro/whatsmeow-mysql/types/events"
+	"github.com/pbribeiro/whatsmeow-mysql/util/keys"
+	waLog "github.com/pbribeiro/whatsmeow-mysql/util/log"
 )
 
 // EventHandler is a function that can handle events from WhatsApp.

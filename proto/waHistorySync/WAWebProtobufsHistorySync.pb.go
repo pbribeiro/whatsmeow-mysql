@@ -13,11 +13,11 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 
-	waChatLockSettings "go.mau.fi/whatsmeow/proto/waChatLockSettings"
-	waCommon "go.mau.fi/whatsmeow/proto/waCommon"
-	waE2E "go.mau.fi/whatsmeow/proto/waE2E"
-	waSyncAction "go.mau.fi/whatsmeow/proto/waSyncAction"
-	waWeb "go.mau.fi/whatsmeow/proto/waWeb"
+	waChatLockSettings "github.com/pbribeiro/whatsmeow-mysql/proto/waChatLockSettings"
+	waCommon "github.com/pbribeiro/whatsmeow-mysql/proto/waCommon"
+	waE2E "github.com/pbribeiro/whatsmeow-mysql/proto/waE2E"
+	waSyncAction "github.com/pbribeiro/whatsmeow-mysql/proto/waSyncAction"
+	waWeb "github.com/pbribeiro/whatsmeow-mysql/proto/waWeb"
 
 	_ "embed"
 )

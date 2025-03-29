@@ -22,13 +22,13 @@ import (
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
 
-	"go.mau.fi/whatsmeow/proto/waE2E"
-	"go.mau.fi/whatsmeow/proto/waHistorySync"
-	"go.mau.fi/whatsmeow/proto/waMediaTransport"
-	"go.mau.fi/whatsmeow/proto/waServerSync"
-	"go.mau.fi/whatsmeow/socket"
-	"go.mau.fi/whatsmeow/util/cbcutil"
-	"go.mau.fi/whatsmeow/util/hkdfutil"
+	"github.com/pbribeiro/whatsmeow-mysql/proto/waE2E"
+	"github.com/pbribeiro/whatsmeow-mysql/proto/waHistorySync"
+	"github.com/pbribeiro/whatsmeow-mysql/proto/waMediaTransport"
+	"github.com/pbribeiro/whatsmeow-mysql/proto/waServerSync"
+	"github.com/pbribeiro/whatsmeow-mysql/socket"
+	"github.com/pbribeiro/whatsmeow-mysql/util/cbcutil"
+	"github.com/pbribeiro/whatsmeow-mysql/util/hkdfutil"
 )
 
 // MediaType represents a type of uploaded file on WhatsApp.

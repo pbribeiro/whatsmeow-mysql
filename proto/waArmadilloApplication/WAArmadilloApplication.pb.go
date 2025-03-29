@@ -13,8 +13,8 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 
-	waArmadilloXMA "go.mau.fi/whatsmeow/proto/waArmadilloXMA"
-	waCommon "go.mau.fi/whatsmeow/proto/waCommon"
+	waArmadilloXMA "github.com/pbribeiro/whatsmeow-mysql/proto/waArmadilloXMA"
+	waCommon "github.com/pbribeiro/whatsmeow-mysql/proto/waCommon"
 
 	_ "embed"
 )

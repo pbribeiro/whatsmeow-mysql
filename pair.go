@@ -17,11 +17,11 @@ import (
 	"go.mau.fi/libsignal/ecc"
 	"google.golang.org/protobuf/proto"
 
-	waBinary "go.mau.fi/whatsmeow/binary"
-	"go.mau.fi/whatsmeow/proto/waAdv"
-	"go.mau.fi/whatsmeow/types"
-	"go.mau.fi/whatsmeow/types/events"
-	"go.mau.fi/whatsmeow/util/keys"
+	waBinary "github.com/pbribeiro/whatsmeow-mysql/binary"
+	"github.com/pbribeiro/whatsmeow-mysql/proto/waAdv"
+	"github.com/pbribeiro/whatsmeow-mysql/types"
+	"github.com/pbribeiro/whatsmeow-mysql/types/events"
+	"github.com/pbribeiro/whatsmeow-mysql/util/keys"
 )
 
 func (cli *Client) handleIQ(node *waBinary.Node) {

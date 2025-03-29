@@ -5,8 +5,8 @@ import (
 	"math"
 	"strconv"
 
-	"go.mau.fi/whatsmeow/binary/token"
-	"go.mau.fi/whatsmeow/types"
+	"github.com/pbribeiro/whatsmeow-mysql/binary/token"
+	"github.com/pbribeiro/whatsmeow-mysql/types"
 )
 
 type binaryEncoder struct {

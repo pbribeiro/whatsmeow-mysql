@@ -1,4 +1,4 @@
-module go.mau.fi/whatsmeow
+module github.com/pbribeiro/whatsmeow-mysql
 
 go 1.23.0
 

@@ -8,11 +8,11 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	"go.mau.fi/whatsmeow/proto/waCommon"
-	"go.mau.fi/whatsmeow/proto/waServerSync"
-	"go.mau.fi/whatsmeow/proto/waSyncAction"
-	"go.mau.fi/whatsmeow/types"
-	"go.mau.fi/whatsmeow/util/cbcutil"
+	"github.com/pbribeiro/whatsmeow-mysql/proto/waCommon"
+	"github.com/pbribeiro/whatsmeow-mysql/proto/waServerSync"
+	"github.com/pbribeiro/whatsmeow-mysql/proto/waSyncAction"
+	"github.com/pbribeiro/whatsmeow-mysql/types"
+	"github.com/pbribeiro/whatsmeow-mysql/util/cbcutil"
 )
 
 // MutationInfo contains information about a single mutation to the app state.

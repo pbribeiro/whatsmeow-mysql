@@ -23,14 +23,14 @@ import (
 	"go.mau.fi/util/random"
 	"google.golang.org/protobuf/proto"
 
-	"go.mau.fi/whatsmeow/appstate"
-	waBinary "go.mau.fi/whatsmeow/binary"
-	"go.mau.fi/whatsmeow/proto/waE2E"
-	"go.mau.fi/whatsmeow/proto/waHistorySync"
-	"go.mau.fi/whatsmeow/proto/waWeb"
-	"go.mau.fi/whatsmeow/store"
-	"go.mau.fi/whatsmeow/types"
-	"go.mau.fi/whatsmeow/types/events"
+	"github.com/pbribeiro/whatsmeow-mysql/appstate"
+	waBinary "github.com/pbribeiro/whatsmeow-mysql/binary"
+	"github.com/pbribeiro/whatsmeow-mysql/proto/waE2E"
+	"github.com/pbribeiro/whatsmeow-mysql/proto/waHistorySync"
+	"github.com/pbribeiro/whatsmeow-mysql/proto/waWeb"
+	"github.com/pbribeiro/whatsmeow-mysql/store"
+	"github.com/pbribeiro/whatsmeow-mysql/types"
+	"github.com/pbribeiro/whatsmeow-mysql/types/events"
 )
 
 var pbSerializer = store.SignalProtobufSerializer
